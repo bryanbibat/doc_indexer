@@ -43,6 +43,8 @@ GEM
     coffee-script-source (1.6.3)
     erubis (2.7.0)
     execjs (2.0.1)
+    haml (4.0.3)
+      tilt
     hike (1.2.3)
     i18n (0.6.5)
     journey (1.0.4)
@@ -113,6 +115,7 @@ PLATFORMS
 DEPENDENCIES
   carrierwave
   coffee-rails (~> 3.2.1)
+  haml
   jquery-rails
   pg
   rails (= 3.2.14)

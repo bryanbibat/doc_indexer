@@ -1,0 +1,37 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "", :name => "author"}/
+    %link{:href => "/favicon.png", :rel => "shortcut icon"}/
+    %title Open Library
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    / Custom styles for this template
+    %link{:href => "starter-template.css", :rel => "stylesheet"}/
+  %body
+    .navbar.navbar-inverse.navbar-fixed-top
+      .container
+        .navbar-header
+          %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          = link_to 'Philippine Open Library', root_path, class: 'navbar-brand'
+        .collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            %li.active
+              = link_to 'Home', root_path
+            %li
+              = link_to 'Upload a Document', new_document_path
+            %li
+              = link_to 'About', 'https://www.facebook.com/groups/pinoypug/permalink/612637275452970/'
+            %li
+              = link_to 'Contact', 'https://www.facebook.com/groups/214546845336651/'
+
+        / /.nav-collapse
+    .container
+      = yield

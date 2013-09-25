@@ -11,15 +11,18 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :doc %><br />
+
+  <div class="form-group">
+    <%= f.label :doc, 'Please self a file to upload' %><br />
     <%= f.file_field :doc %>
   </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.button 'Upload Document', type: :submit, class: 'btn btn-primary' %>
+    <%= link_to 'Back', documents_path, class: 'btn btn-warning' %>
   </div>
 <% end %>
