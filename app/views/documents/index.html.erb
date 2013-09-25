@@ -1,32 +1,44 @@
-<%= form_tag search_documents_path, method: :get do %>
-  <div class="field">
-    <%= text_field_tag :query, params[:query], placeholder: "Enter search term" %>
-    <%= submit_tag "Search" %>
-  </div>
-<% end %>
+<%= render 'shared/teaser' %>
+<div class="row">
 
-<h1>Listing documents</h1>
+  <%= form_tag search_documents_path, method: :get do %>
+
+    <div class="col-lg-7">
+      <div class="input-group">
+        <%= text_field_tag :query, params[:query], class: 'form-control', placeholder: "Enter search term" %>
+        <span class="input-group-btn">
+          <%= button_tag "Search Documents", type: 'submit', class: 'btn btn-large btn-primary' %>
+        </span>
+      </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+
+  <% end %>
+
+</div><!-- /.row -->
+
+
+<div class="documents">
+
+<h2>Recently Uploaded Documents</h2>
 
 <% if action_name == "search" %>
   <p>Search query: <%= params[:query] %></p>
 <% end %>
 
-<%= link_to 'New Document', new_document_path %>
-
-<table>
+<table class="table table-striped">
   <tr>
     <th>Title</th>
     <th></th>
     <th></th>
-    <th></th>
+    <%#<th></th>%>
   </tr>
 
 <% @documents.each do |document| %>
   <tr>
-    <td><%= document.title %></td>
+    <td><strong><%= document.title %></strong></td>
     <td><%= link_to 'View/Download', document.doc.url, target: "_blank" %></td>
     <td><%= link_to 'Edit', edit_document_path(document) %></td>
-    <td><%= link_to 'Destroy', document, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <%#<td><%= link_to 'Destroy', document, method: :delete, data: { confirm: 'Are you sure?' } %></td>%>
   </tr>
 <% end %>
 <% if @documents.empty? %>
@@ -34,6 +46,6 @@
 <% end %>
 </table>
 
-<br />
+</div>
 
-<%= link_to 'New Document', new_document_path %>
+<%= link_to 'New Document', new_document_path, class: 'btn btn-primary' %>

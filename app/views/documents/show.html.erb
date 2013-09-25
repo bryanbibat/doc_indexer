@@ -1,20 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @document.title %>
-</p>
+<h1><%= @document.title %></h1>
 
-<p>
-  <b>Doc:</b>
-  <%= @document.doc %>
-</p>
+<h3>Document</h3>
+<p><%= link_to 'Download', @document.doc.to_s %></p>
 
-<p>
-  <b>Content:</b>
-  <%= @document.content %>
-</p>
 
+<h3>Content</h3>
+<p class="body">
+  <%= simple_format @document.content %>
+</p>
 
 <%= link_to 'Edit', edit_document_path(@document) %> |
 <%= link_to 'Back', documents_path %>
