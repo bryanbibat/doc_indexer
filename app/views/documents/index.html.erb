@@ -30,7 +30,7 @@
     <th>Title</th>
     <th></th>
     <th></th>
-    <%#<th></th>%>
+    <!--<th></th>-->
   </tr>
 
 <% @documents.each do |document| %>
@@ -38,7 +38,7 @@
     <td><strong><%= document.title %></strong></td>
     <td><%= link_to 'View/Download', document.doc.url, target: "_blank" %></td>
     <td><%= link_to 'Edit', edit_document_path(document) %></td>
-    <%#<td><%= link_to 'Destroy', document, method: :delete, data: { confirm: 'Are you sure?' } %></td>%>
+    <!--<td><%= link_to 'Destroy', document, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
   </tr>
 <% end %>
 <% if @documents.empty? %>
