@@ -1,8 +1,6 @@
 require 'ruby_tika_app'
 
 class Document < ActiveRecord::Base
-  attr_accessible :doc, :title
-
   mount_uploader :doc, DocumentUploader
 
   def extract_content

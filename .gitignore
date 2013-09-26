@@ -9,7 +9,6 @@
 
 # Ignore the default SQLite database.
 /config/database.yml
-/bin
 
 # Ignore all logfiles and tempfiles.
 /log/*.log

@@ -8,10 +8,7 @@
     %link{:href => "/favicon.png", :rel => "shortcut icon"}/
     %title Open Library
     = stylesheet_link_tag    "application", :media => "all"
-    = javascript_include_tag "application"
     = csrf_meta_tags
-    / Custom styles for this template
-    %link{:href => "starter-template.css", :rel => "stylesheet"}/
   %body
     .navbar.navbar-inverse.navbar-fixed-top
       .container
@@ -35,3 +32,4 @@
         / /.nav-collapse
     .container
       = yield
+    = javascript_include_tag "application"
