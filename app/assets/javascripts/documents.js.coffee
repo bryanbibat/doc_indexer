@@ -3,6 +3,9 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $('form[method=get]').on 'submit', (event) ->
-  console.log("here")
   Turbolinks.visit @.action + '?' + $(@).serialize()
   event.preventDefault()
+
+$(document).on 'page:fetch',   () -> NProgress.start()
+$(document).on 'page:change',  () -> NProgress.done()
+$(document).on 'page:restore', () -> NProgress.remove()
