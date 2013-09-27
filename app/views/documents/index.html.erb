@@ -21,10 +21,6 @@
 
 <h2>Recently Uploaded Documents</h2>
 
-<% if action_name == "search" %>
-  <p>Search query: <%= params[:query] %></p>
-<% end %>
-
 <table class="table table-striped">
   <tr>
     <th>Title</th>
@@ -47,5 +43,7 @@
 </table>
 
 </div>
+
+<% paginate @documents %>
 
 <%= link_to 'New Document', new_document_path, class: 'btn btn-primary' %>

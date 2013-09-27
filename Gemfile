@@ -7,9 +7,15 @@ gem 'rails', '4.0.0'
 
 gem 'pg'
 gem 'inherited_resources'
-gem 'textacular'
+gem 'has_scope'
 gem 'ruby_tika_app'
 gem 'carrierwave'
+gem 'sunspot_rails'
+gem 'bootstrap-sass', git: "https://github.com/thomas-mcdonald/bootstrap-sass"
+
+group :development do
+  gem 'sunspot_solr'
+end
 
 gem 'sass-rails',   '~> 4.0.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -19,6 +25,7 @@ gem 'haml'
 
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'kaminari'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

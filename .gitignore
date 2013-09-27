@@ -9,9 +9,11 @@
 
 # Ignore the default SQLite database.
 /config/database.yml
+/config/sunspot.yml
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
 /public/uploads
 .DS_Store
+/solr

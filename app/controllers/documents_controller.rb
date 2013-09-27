@@ -1,9 +1,18 @@
 class DocumentsController < InheritedResources::Base
+
+  has_scope :page, :default => 1
+
   def search
-    @documents = Document.basic_search(params[:query])
+    @documents = Document.search do
+      fulltext params[:query] do
+        highlight :content
+      end
+      with :indexed, true
+      paginate page: params[:page]
+    end
 
     respond_to do |format|
-      format.html { render :index } # index.html.erb
+      format.html 
       format.json { render json: @documents }
     end
   end

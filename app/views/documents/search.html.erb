@@ -1,0 +1,39 @@
+<div class="row">
+
+  <%= form_tag search_documents_path, method: :get do %>
+    <div class="col-lg-7">
+      <div class="input-group">
+        <%= text_field_tag :query, params[:query], class: 'form-control', placeholder: "Enter search term" %>
+        <span class="input-group-btn">
+          <%= button_tag "Search Documents", type: 'submit', class: 'btn btn-large btn-primary' %>
+        </span>
+      </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+
+  <% end %>
+
+</div><!-- /.row -->
+
+<div class="row result-count">
+  <div class="col-lg-6"><%= pluralize @documents.total, "result" %> for "<%= params[:query] %>" found</div>
+</div>
+
+<% @documents.each_hit_with_result do |hit, document| %>
+  <div class="search-result">
+    <h3><%= link_to document.title, document %></h3>
+    <p>
+      <% unless hit.highlights(:content).empty? %>
+        <%= raw hit.highlights(:content)[0].format { |word| "<strong>#{word}</strong>" } %>
+      <% end %>
+    </p>
+    <p>
+      <%= link_to '<span class="glyphicon glyphicon-download"></span> View/Download'.html_safe , document.doc.url, target: "_blank" %>
+      <%= link_to '<span class="glyphicon glyphicon-edit"></span> Edit'.html_safe , edit_document_path(document) %>
+    </p>
+  </div>
+<% end %>
+<% if @documents.total == 0 %>
+  <p>No documents found</p>
+<% end %>
+
+<% paginate @documents.hits %>

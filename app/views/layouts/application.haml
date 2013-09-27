@@ -20,7 +20,7 @@
           = link_to 'Philippine Open Library', root_path, class: 'navbar-brand'
         .collapse.navbar-collapse
           %ul.nav.navbar-nav
-            %li.active
+            %li{ :class => ("active" unless action_name == "search") }
               = link_to 'Home', root_path
             %li
               = link_to 'Upload a Document', new_document_path
